@@ -66,7 +66,11 @@
     "visualization",
     "tree"
   ],
-  "authors": ["Marjan Georgiev", "Austin McDaniel", "Jayson Harshbarger"],
+  "authors": [
+    "Marjan Georgiev",
+    "Austin McDaniel",
+    "Jayson Harshbarger"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/swimlane/ngx-graph/issues"

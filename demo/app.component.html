@@ -1,7 +1,6 @@
 <main [class]="theme">
   <div class="chart-col">
-    <div style="position: absolute; top: 50px; left: 50px; right: 50px; bottom: 50px;">
-      <ngx-graph #graph class="chart-container" [links]="hierarchialGraph.links" [nodes]="hierarchialGraph.nodes"
+      <ngx-graph [links]="hierarchialGraph.links" [nodes]="hierarchialGraph.nodes"
         [curve]="curve" [update$]="update$">
 
         <ng-template #defsTemplate>
@@ -11,7 +10,7 @@
         </ng-template>
 
         <ng-template #nodeTemplate let-node>
-          <svg:g class="node" ngx-tooltip [tooltipPlacement]="'top'" [tooltipType]="'tooltip'" [tooltipTitle]="node.label">
+          <svg:g class="node" ngx-tooltip [tooltipPlacement]="'top'" [tooltipType]="'tooltip'" [tooltipTitle]="node.tooltip">
             <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.options.color" />
             <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
           </svg:g>
@@ -22,7 +21,7 @@
             <svg:path class="line" stroke-width="2" marker-end="url(#arrow)">
             </svg:path>
             <svg:text class="edge-label" text-anchor="middle">
-              <textPath class="text-path" [attr.href]="'#' + link.id" [style.dominant-baseline]="link.dominantBaseline" startOffset="50%">
+              <textPath class="text-path" [attr.href]="'#' + link.id" startOffset="60%">
                 {{link.label}}
               </textPath>
             </svg:text>
@@ -30,23 +29,8 @@
         </ng-template>
 
       </ngx-graph>
-    </div>
   </div>
   <div class="sidebar">
-    <h1>
-      NGX-
-      <strong>Graph</strong>
-      <small class="subtitle">Graph Visualization for Angular</small>
-    </h1>
-
-    <div class="sidebar-body">
-      <h3 style="cursor: pointer">
-        <strong>Options</strong>
-      </h3>
-      <div style="margin-left: 10px;">
         <button class="btn btn-default" (click)="updateChart()">Update</button>
-      </div>
-    </div>
-
   </div>
 </main>

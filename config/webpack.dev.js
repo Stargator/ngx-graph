@@ -29,7 +29,6 @@ module.exports = function(options) {
     },
     entry: {
       'app': './demo/bootstrap.ts',
-      'libs': './demo/libs.ts'
     },
     module: {
       exprContextCritical: false,
@@ -61,7 +60,6 @@ module.exports = function(options) {
       // new webpack.HotModuleReplacementPlugin()
       new CheckerPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
-        name: ['libs'],
         minChunks: Infinity
       }),
       new HtmlWebpackPlugin({

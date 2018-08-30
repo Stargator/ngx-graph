@@ -1,11 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import * as shape from 'd3-shape';
 import { Subject } from 'rxjs/Subject';
 import {generateHierarchialGraph} from './data';
 
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html'
 })
@@ -17,12 +16,10 @@ export class AppComponent {
   update$: Subject<any> = new Subject();
 
   // line interpolation
-  curve: any = shape.curveLinear;
+  curve: any = shape.curveBundle.beta(1);
 
   constructor() {
-    Object.assign(this, {
-      hierarchialGraph: generateHierarchialGraph()
-    });
+      this.hierarchialGraph =  generateHierarchialGraph();
   }
 
   updateChart() {
